@@ -1,13 +1,13 @@
 package com.selenium.ui.interactions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class BrowserLaunchTest {
-
+public class VistaCommerceTests {
     WebDriver driver;
 
     @BeforeMethod
@@ -17,17 +17,14 @@ public class BrowserLaunchTest {
     }
 
     @Test
-    public void launchBrowserTest() throws InterruptedException {
-        driver.get("https://www.google.com");
+    public void createAccountTest() throws InterruptedException {
+        driver.get("http://vistacommerce-qa.rf.gd/");
         Thread.sleep(2000);
-        driver.quit();
-    }
-
-    @Test
-    public void launchBrowserTest2() throws InterruptedException {
-        driver.get("https://www.google.com");
-        Thread.sleep(2000);
-        driver.quit();
+        driver.findElement(By.xpath("//a/span[text()='Sign in']")).click();
+        driver.findElement(By.xpath("//a[contains(text(), 'Create one here')]")).click();
+        driver.findElement(By.name("id_gender")).click();
+        driver.findElement(By.id("field-firstname")).sendKeys("Sid");
+        driver.findElement(By.id("field-lastname")).sendKeys("Mishra");
     }
 
     @AfterMethod

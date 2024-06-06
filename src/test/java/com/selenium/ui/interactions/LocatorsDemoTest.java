@@ -2,6 +2,7 @@ package com.selenium.ui.interactions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -31,6 +32,7 @@ public class LocatorsDemoTest {
         driver.get("http://vistacommerce-qa.rf.gd/");
         Thread.sleep(2000);
         String contactUsLink = driver.findElement(By.xpath("//div[@id='contact-link']/a")).getText();
+        this.getTextBasedSearchedWebElement("*", "All sale products").click();
         if(contactUsLink.equalsIgnoreCase("Contact us")) {
             System.out.println("PASSED");
         }else {
@@ -41,5 +43,9 @@ public class LocatorsDemoTest {
     @AfterMethod
     public void afterMethod() {
         driver.quit();
+    }
+
+    public WebElement getTextBasedSearchedWebElement(String tagName, String elementText) {
+        return driver.findElement(By.xpath("//"+tagName+"[contains(text(),'"+elementText+"')]"));
     }
 }

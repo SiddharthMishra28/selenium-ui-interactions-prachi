@@ -1,6 +1,5 @@
 package com.selenium.ui.config;
 
-import com.selenium.ui.utils.CommonUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;

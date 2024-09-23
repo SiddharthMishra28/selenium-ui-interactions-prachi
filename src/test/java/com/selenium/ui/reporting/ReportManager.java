@@ -9,6 +9,8 @@ import com.selenium.ui.config.Hooks;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.io.FileHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -20,11 +22,13 @@ import java.util.Date;
 
 public class ReportManager extends Hooks implements ITestListener {
 
+    public static Logger logger = LoggerFactory.getLogger(ReportManager.class);
 
     @Override
     public void onTestStart(ITestResult result) {
         test = extent.createTest(result.getMethod().getMethodName());
         test.log(Status.INFO, "Test Started!");
+        logger.info("Sample Log!");
     }
 
     @Override

@@ -11,13 +11,13 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends Hooks {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoginTest.class);
+    public static final Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
     public LoginPage loginPage;
 
     @Test
     public void dummyTest() {
-        System.out.println("Test case failed");
+        logger.info("Test Failed!! Dummy!");
         Assert.assertTrue(false);
     }
 
@@ -28,6 +28,7 @@ public class LoginTest extends Hooks {
         logger.info("This is a sample log");
         loginPage.assertStringMatch("GTPL Bank Manager HomePage", driver.getTitle());
         logger.error("Script Failed for some reason!");
+        logger.debug("Some debug log statement");
     }
 
     @DataProvider(name = "loginData")
